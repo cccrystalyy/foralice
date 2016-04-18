@@ -121,10 +121,11 @@ function timeElapse(date, mode) {
 		current.setDate(current.getDate() - 1);
 	}
 	if (mode == 1) {
-		days = current.getDate() - date.getDate() - 1;
+		days = current.getDate() - date.getDate();
 		if (days < 0) {
 			days += getDaysInMonth(current.getMonth());
-			current.setDate(current.getDate() - 1);
+			///current.setDate(current.getDate() - 1);
+			current.setMonth(current.getMonth() - 1);
 		}
 		months = current.getMonth() - date.getMonth();
 		if (months < 0) {
@@ -133,6 +134,7 @@ function timeElapse(date, mode) {
 		}
 		years = 4 + current.getFullYear() - date.getFullYear();
 	} else {
+		current = new Date();
 		days = 1429 + Math.floor((current.getTime() - date.getTime()) / (1000 * 3600 * 24));
 	}
 
@@ -145,6 +147,7 @@ function timeElapse(date, mode) {
 	if (seconds < 10) {
 		seconds = "0" + seconds;
 	}
+
 	var result = (years > 0 ? "<span class=\"digit\">" + years + "</span> year ":"")
 	result += (months >= 0 ? "<span class=\"digit\">" + months + "</span> month ":"");
 	result += "<span class=\"digit\">" + days + "</span> day ";
