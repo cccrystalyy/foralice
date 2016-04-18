@@ -15,7 +15,7 @@ $(function () {
     gardenCtx = gardenCanvas.getContext("2d");
     gardenCtx.globalCompositeOperation = "lighter";
     garden = new Garden(gardenCtx, gardenCanvas);
-	
+
 	$("#content").css("width", $loveHeart.width() + $("#code").width());
 	$("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
 	$("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
@@ -121,7 +121,7 @@ function timeElapse(date, mode) {
 		current.setDate(current.getDate() - 1);
 	}
 	if (mode == 1) {
-		days = current.getDate() - date.getDate();
+		days = current.getDate() - date.getDate() - 1;
 		if (days < 0) {
 			days += getDaysInMonth(current.getMonth());
 			current.setDate(current.getDate() - 1);
@@ -131,9 +131,9 @@ function timeElapse(date, mode) {
 			months += 12;
 			current.setYear(current.getFullYear() - 1);
 		}
-		years = current.getFullYear() - date.getFullYear();
+		years = 4 + current.getFullYear() - date.getFullYear();
 	} else {
-		days = Math.floor((current.getTime() - date.getTime()) / (1000 * 3600 * 24));
+		days = 1429 + Math.floor((current.getTime() - date.getTime()) / (1000 * 3600 * 24));
 	}
 
 	if (hours < 10) {
@@ -151,7 +151,7 @@ function timeElapse(date, mode) {
 	result += "<span class=\"digit\">" + hours + "</span> hr "
 	result += "<span class=\"digit\">" + minutes + "</span> min "
 	result += "<span class=\"digit\">" + seconds + "</span> sec";
-	
+
 	$("#elapseClock").html(result);
 }
 

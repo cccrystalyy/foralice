@@ -17,7 +17,7 @@
 <body _texified="true">
 	<div id="mainDiv">
 		<div style="width: 1110px; height: 625px; margin-top: 205px; margin-left: 405px;" id="content">
-			
+
 			<div id="loveHeart">
 				<canvas height="625" width="670" id="garden"></canvas>
 				<div style="position: absolute; top: 400px; left: 915px;" id="words">
@@ -44,21 +44,21 @@
 		var together = new Date();
 
 		//Should be 2012-04-18 but the js current time is wrong
-		together.setFullYear(2012, 04, 18);
-		together.setHours(16);
+		together.setFullYear(2016, 04, 17);
+		together.setHours(18);
 		together.setMinutes(0);
 		together.setSeconds(0);
 		together.setMilliseconds(0);
-		
+
 		$("#loveHeart").click(function(){
 			displayMode *= -1;
 			timeElapse(together, displayMode);
 		});
-		
+
 		if (!document.createElement('canvas').getContext) {
 			var msg = document.createElement("div");
 			msg.id = "errorMsg";
-			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
 			document.body.appendChild(msg);
 			$("#code").css("display", "none")
 			$("#copyright").css("position", "absolute");
